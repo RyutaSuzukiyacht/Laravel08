@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('news/create', 'Admin\NewsController@add');
     Route::post('news/create', 'Admin\NewsController@create');
 });
 
@@ -31,3 +31,9 @@ Route::get('admin/profile/create', 'Admin\ProfileController@add')->middleware('a
 
 Route::get('admin/profile/edit', 'Admin\ProfileController@add')->middleware('auth');
 
+//課題Laravel 13-3
+Route::post('profile/create', 'Admin\ProfileController@create');
+
+//課題Laravel 13-6
+
+Route::post('profile/edit', 'Admin\ProfileController@update');

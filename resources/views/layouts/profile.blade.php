@@ -25,8 +25,6 @@
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         {{-- この章の後半で作成するCSSを読み込みます --}}
         <link href="{{ secure_asset('css/profile.css') }}" rel="stylesheet">
-        
-        
     </head>
     <body>
         <div id="app">
@@ -43,25 +41,22 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-
                         </ul>
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-
-                        {{-- 以下を追記 --}}
-                        <!-- Authentication Links -->
+                            <!-- Authentication Links -->
                         {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
                         @guest
                             <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else
-                           <!-- <li class="nav-item dropdown"> -->
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown"> -->
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -69,12 +64,11 @@
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        {{csrf_field}}
+                                        {{ csrf_field() }}
                                     </form>
-                                <!--</div> -->
-                            <!--</li>-->
+                                </div>
+                            </li>
                             @endguest
-                            {{-- 以上までを追記 --}}
                         </ul>
                     </div>
                 </div>

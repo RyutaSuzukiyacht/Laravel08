@@ -17,23 +17,17 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
+    Route::post('news/create', 'Admin\NewsController@create');
 });
 
-//課題1
-//Routing;
-
-//課題2
-
-//課題3
-//Route::get('XXX', 'AAAController@bbb');
-
-//課題4
-//Route::get('admin/profile/create', 'Admin\ProfileController@add');
 
 //Route::get('admin/profile/edit', 'Admin\ProfileController@edit');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//課題Laraver12 2.3
 Route::get('admin/profile/create', 'Admin\ProfileController@add')->middleware('auth');
+
+Route::get('admin/profile/edit', 'Admin\ProfileController@add')->middleware('auth');
 

@@ -28,3 +28,17 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 }
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+/.vscode
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.env
+.phpunit.result.cache

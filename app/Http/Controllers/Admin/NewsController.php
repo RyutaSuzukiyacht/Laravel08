@@ -4,16 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use App\News;
-
 use App\History;
-
 use Carbon\Carbon;
 
 class NewsController extends Controller
 {
-    //
     public function add()
     {
       return view('admin.news.create');
@@ -25,7 +21,6 @@ public function create(Request $request)
     // 以下を追記
       // Varidationを行う
       $this->validate($request, News::$rules);
-
       $news = new News;
       $form = $request->all();
 
